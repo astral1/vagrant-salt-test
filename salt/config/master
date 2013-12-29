@@ -1,3 +1,5 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
 ##### Primary configuration settings #####
 ##########################################
 # This configuration file is used to manage the behavior of the Salt Master
@@ -505,3 +507,6 @@
 # List of git repositories to include with the local repo
 #win_gitrepos:
 #  - 'https://github.com/saltstack/salt-winrepo.git'
+nodegroups:
+  rails: 'minion1'
+  db: 'minion2' 

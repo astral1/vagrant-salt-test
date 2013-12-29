@@ -43,7 +43,7 @@ Vagrant.configure('2') do |config|
       salt.install_type = :stable
       salt.minion_config = 'salt/config/minion'
       #salt.minion_config = 'salt/config/minion/1'
-      #salt.run_highstate = true
+      salt.run_highstate = true
     end
   end
 
@@ -57,7 +57,7 @@ Vagrant.configure('2') do |config|
       salt.install_type = :stable
       salt.minion_config = 'salt/config/minion'
       #salt.minion_config = 'salt/config/minion/2'
-      #salt.run_highstate = true
+      salt.run_highstate = true
     end
   end
 
