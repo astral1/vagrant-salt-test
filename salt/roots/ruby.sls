@@ -1,6 +1,6 @@
 # -*- mode: yaml -*-
 # vi: set ft=yaml :
 ---
-ruby:
-  rvm:
-    - installed
+ruby-2.1.0:
+  rvm.installed:
+    - default: True
