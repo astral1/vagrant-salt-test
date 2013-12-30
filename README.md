@@ -13,7 +13,8 @@ Start up
 --------
 
 ```
-expose SALTY_VAGRANT_BASE=/path/to/basebox
+export SALTY_VAGRANT_BASE=/path/to/basebox
+vagrant plugin install vagrant-salt
 vagrant up
 ```
 
