@@ -2,7 +2,8 @@
 # vi: set ft=yaml :
 ---
 base:
-  #'*':
+  '*':
+    - minion
   master:
     - ruby
   rails:

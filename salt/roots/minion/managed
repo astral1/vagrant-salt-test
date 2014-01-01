@@ -1,0 +1,6 @@
+#mongo:
+#  db: saltstack
+#  host: 192.168.0.102
+#mongo.port: 27017
+mongo.host: 192.168.0.102
+mongo.db: saltstack
