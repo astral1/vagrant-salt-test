@@ -3,6 +3,7 @@
 ---
 base:
   '*':
+    - prerequisites
     - minion
   master:
     - ruby

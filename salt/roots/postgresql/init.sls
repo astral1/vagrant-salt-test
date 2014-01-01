@@ -8,7 +8,7 @@ add_repository_key:
 
 /etc/apt/sources.list.d/postgresql.list:
   file.managed:
-    - source: salt://postgres-apt.list
+    - source: salt://postgresql/postgres-apt.list
 
 postgresql:
   pkg.installed:
