@@ -16,7 +16,8 @@ Vagrant.configure('2') do |config|
     master.vm.host_name = 'master'
     master.vm.synced_folder 'salt/pki/', '/etc/salt/pki/'
     master.vm.network :private_network, ip: '192.168.11.100'
-    master.vm.forward_port 8000, 8000
+    master.vm.network 'forwarded_port', guest: 8000, host: 8000
+    master.vm.network 'forwarded_port', guest: 8080, host: 8001
     master.vm.provision :salt do |salt|
       salt.install_master = true
 
