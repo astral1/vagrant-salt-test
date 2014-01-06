@@ -1,11 +1,11 @@
 # -*- mode: yaml -*-
 # vi: set ft=yaml :
 ---
-#external_auth:
-#  pam:
-#    vagrant:
-#      - .*
-#      - '@runner'
+external_auth:
+  pam:
+    vagrant:
+      - .*
+      - '@runner'
 halite:
   level: info
   server: cherrypy
