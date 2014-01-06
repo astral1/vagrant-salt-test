@@ -16,6 +16,7 @@ Vagrant.configure('2') do |config|
     master.vm.host_name = 'master'
     master.vm.synced_folder 'salt/pki/', '/etc/salt/pki/'
     master.vm.network :private_network, ip: '192.168.11.100'
+    master.vm.forward_port 8000, 8000
     master.vm.provision :salt do |salt|
       salt.install_master = true
 
@@ -43,7 +44,7 @@ Vagrant.configure('2') do |config|
       salt.install_type = :stable
       salt.minion_config = 'salt/config/minion'
       #salt.minion_config = 'salt/config/minion/1'
-      salt.run_highstate = true
+      #salt.run_highstate = true
     end
   end
 
@@ -57,7 +58,7 @@ Vagrant.configure('2') do |config|
       salt.install_type = :stable
       salt.minion_config = 'salt/config/minion'
       #salt.minion_config = 'salt/config/minion/2'
-      salt.run_highstate = true
+      #salt.run_highstate = true
     end
   end
 
