@@ -1,0 +1,6 @@
+# -*- mode: yaml -*-
+# vi: set ft=yaml :
+---
+rest_cherrypy:
+  port: 8000
+  disable_ssl: True

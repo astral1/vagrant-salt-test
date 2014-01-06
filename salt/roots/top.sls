@@ -7,6 +7,7 @@ base:
     - minion
   master:
     - ruby
+    - salt-api
   rails:
     - match: nodegroup
     - rails
