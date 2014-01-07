@@ -9,7 +9,6 @@ base:
     - ruby
     - salt-api
     - halite
-    - master
   rails:
     - match: nodegroup
     - rails
