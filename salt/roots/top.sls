@@ -9,9 +9,11 @@ base:
     - ruby
     - salt-api
     - halite
+    - rethinkdb.python
   rails:
     - match: nodegroup
     - rails
   db:
     - match: nodegroup
     - postgresql
+    - rethinkdb
