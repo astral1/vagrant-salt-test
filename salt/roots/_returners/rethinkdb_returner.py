@@ -15,14 +15,18 @@ def __virtual__():
     return 'rethinkdb'
 
 def returner(ret):
-    host_addr = '192.168.11.102'
-    db_name = 'test'
-    talbe_name = 'returns'
+    options = __salt__['config.option']('rethinkdb')
+    host_addr = options['host']
+    log.error(host_addr)
+    db_name = options['db']
+    log.error(db_name)
+    talbe_name = options['table']
+    log.error(talbe_name)
     conn = r.connect(host=host_addr, db=db_name)
     if talbe_name not in r.table_list().run(conn):
         log.warning('do not exist table')
         r.table_create(talbe_name).run(conn)
-        log.warning('create new table')
+        log.info('create new table')
 
     result = {
             'job': ret['jid'],
@@ -32,4 +36,4 @@ def returner(ret):
             #'body': ret['return'],
             'return_code': ret['retcode']
             }
-    r.table(talbe_name).insert(result).run(conn)
+    result = r.table(talbe_name).insert(result).run(conn)

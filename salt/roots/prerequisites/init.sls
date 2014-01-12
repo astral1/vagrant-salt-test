@@ -24,3 +24,7 @@ netifaces:
     - require:
       - pkg: python-pip
       - pkg: python-dev
+
+/etc/salt/minion.d/rethinkdb.conf:
+  file.managed:
+    - source: salt://prerequisites/rethinkdb

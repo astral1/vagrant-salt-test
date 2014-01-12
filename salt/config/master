@@ -510,3 +510,5 @@ default_include: master.d/*.conf
 nodegroups:
   rails: 'minion1'
   db: 'minion2' 
+rethinkdb:
+  host: '192.168.11.102'

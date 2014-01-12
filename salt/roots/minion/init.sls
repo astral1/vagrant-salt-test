@@ -5,7 +5,7 @@ salt-minion:
   service:
     - running
     - watch:
-      - file: /etc/salt/minion.d/managed.conf
+      - file: /etc/salt/minion.d/*.conf
 
 /etc/salt/minion.d/managed.conf:
   file.managed:
