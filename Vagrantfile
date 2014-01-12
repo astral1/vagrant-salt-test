@@ -53,6 +53,7 @@ Vagrant.configure('2') do |config|
     minion2.vm.box = 'minion2'
     minion2.vm.host_name = 'minion2'
     minion2.vm.network :private_network, ip: '192.168.11.102'
+    minion2.vm.network 'forwarded_port', guest: 8080, host: 8002
     minion2.vm.provision :salt do |salt|
       salt.minion_key = 'salt/pki/vagrant/minion2.pem'
       salt.minion_pub = 'salt/pki/vagrant/minion2.pub'

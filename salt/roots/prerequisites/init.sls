@@ -1,6 +1,9 @@
 # -*- mode: yaml -*-
 # vi: set ft=yaml :
 ---
+include:
+  - rethinkdb.python
+
 python-pip:
   pkg:
     - installed

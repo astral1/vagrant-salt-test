@@ -10,5 +10,18 @@ rethinkdb-repo:
     - name: rethinkdb
     - refresh: True
 
+/etc/rethinkdb/instances.d/1.conf:
+  file.managed:
+    - source: salt://rethinkdb/config
+
 rethinkdb:
-  pkg.installed
+  pkg:
+    - installed
+    - require:
+      - pkgrepo: rethinkdb-repo
+  service:
+    - running
+    - watch:
+      - file: /etc/rethinkdb/instances.d/1.conf
+    - require:
+      - file: /etc/rethinkdb/instances.d/1.conf
