@@ -355,7 +355,8 @@ default_include: master.d/*.conf
 #  base:
 #    - /srv/pillar
 
-#ext_pillar:
+ext_pillar:
+  - rethinkdb
 #  - hiera: /etc/hiera.yaml
 #  - cmd_yaml: cat /etc/salt/yaml
 
@@ -511,4 +512,7 @@ nodegroups:
   rails: 'minion1'
   db: 'minion2' 
 rethinkdb:
-  host: '192.168.11.102'
+  host: 192.168.11.102
+  db: test
+  table: returns
+  pillar: pillars

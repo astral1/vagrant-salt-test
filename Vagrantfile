@@ -14,6 +14,7 @@ Vagrant.configure('2') do |config|
   config.vm.define :master do |master|
     master.vm.box = 'master'
     master.vm.host_name = 'master'
+    master.vm.synced_folder 'salt/pillar', '/srv/pillar'
     master.vm.synced_folder 'salt/pki/', '/etc/salt/pki/'
     master.vm.network :private_network, ip: '192.168.11.100'
     master.vm.network 'forwarded_port', guest: 8000, host: 8000

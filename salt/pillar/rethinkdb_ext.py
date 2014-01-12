@@ -14,13 +14,13 @@ def __virtual__():
         return False
     return 'rethinkdb'
 
-def returner(ret):
+def ext_pillar(minion_id, pillar, *args, **kwargs):
     options = __salt__['config.option']('rethinkdb')
     host_addr = options['host']
     log.error(host_addr)
     db_name = options['db']
     log.error(db_name)
-    table_name = options['table']
+    table_name = options['pillar']
     log.error(table_name)
     conn = r.connect(host=host_addr, db=db_name)
     if table_name not in r.table_list().run(conn):
@@ -28,12 +28,6 @@ def returner(ret):
         r.table_create(table_name).run(conn)
         log.info('create new table')
 
-    result = {
-            'job': ret['jid'],
-            'minion': ret['id'],
-            'function': ret['fun'],
-            'body': json.dumps(ret['return']),
-            #'body': ret['return'],
-            'return_code': ret['retcode']
-            }
-    result = r.table(table_name).insert(result).run(conn)
+    result = r.table(table_name).filter({'minion': minion_id})
+
+    return result
