@@ -6,7 +6,7 @@ try:
     import rethinkdb as r
     has_rethinkdb = True
 except ImportError:
-    log.error('fail to initialize rethinkdb_returner')
+    log.error('fail to initialize rethinkdb_pillar')
     has_rethinkdb = False
 
 def __virtual__():
@@ -30,4 +30,5 @@ def ext_pillar(minion_id, pillar, *args, **kwargs):
 
     result = r.table(table_name).filter({'minion': minion_id})
 
-    return result
+    #return result
+    return {'test': 'ping-pong'}

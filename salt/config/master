@@ -199,6 +199,7 @@ default_include: master.d/*.conf
 
 # Enable Cython for master side modules
 #cython_enable: False
+extension_modules: /srv/modules
 
 #####      State System settings     #####
 ##########################################
@@ -356,14 +357,14 @@ default_include: master.d/*.conf
 #    - /srv/pillar
 
 ext_pillar:
-  - rethinkdb
+  - rethinkdb: pillar
 #  - hiera: /etc/hiera.yaml
 #  - cmd_yaml: cat /etc/salt/yaml
 
 # The pillar_opts option adds the master configuration file data to a dict in
 # the pillar called "master". This is used to set simple configurations in the
 # master config file that can then be used on minions.
-#pillar_opts: True
+pillar_opts: True
 
 
 #####          Syndic settings       #####

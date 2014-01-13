@@ -4,3 +4,5 @@
 rethinkdb-pip:
   pip.installed:
     - name: rethinkdb
+    - require:
+      - pkg: python-pip
