@@ -17,11 +17,8 @@ def __virtual__():
 def returner(ret):
     options = __salt__['config.option']('rethinkdb')
     host_addr = options['host']
-    log.error(host_addr)
     db_name = options['db']
-    log.error(db_name)
     table_name = options['table']
-    log.error(table_name)
     conn = r.connect(host=host_addr, db=db_name)
     if table_name not in r.table_list().run(conn):
         log.warning('do not exist table')

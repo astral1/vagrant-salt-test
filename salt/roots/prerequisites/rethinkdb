@@ -6,3 +6,4 @@ rethinkdb:
   db: test
   table: returns
   pillar: pillars
+  grains: grains
