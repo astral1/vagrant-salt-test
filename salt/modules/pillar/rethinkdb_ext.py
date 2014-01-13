@@ -28,7 +28,14 @@ def ext_pillar(minion_id, pillar, *args, **kwargs):
         r.table_create(table_name).run(conn)
         log.info('create new table')
 
-    result = r.table(table_name).filter({'minion': minion_id})
+    cursor = r.table(table_name).filter({'minion': minion_id}).run(conn)
+    result = []
 
-    #return result
-    return {'test': 'ping-pong'}
+    for pillar in cursor:
+        result.append(pillar)
+
+    if len(result) > 0:
+        return result[0]
+    
+    return {}
+    #return {'test': 'ping-pong'}
